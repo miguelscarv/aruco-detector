@@ -1,6 +1,6 @@
 json5==0.9.14
 numpy==1.21.2
-opencv-contrib-python==4.6.0.66
+opencv-contrib-python==3.3.0.9
 plotly==5.15.0
 #scipy==1.5.4
 seaborn==0.11.2

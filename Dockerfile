@@ -51,8 +51,8 @@ COPY requirements.txt ${WORKSPACE}/
 
 WORKDIR ${WORKSPACE}
 
-RUN apt-get update -y 
-RUN apt-get install libgl1
+##RUN apt-get update -y 
+##RUN apt-get install libgl1
 
 
 RUN pip install --upgrade pip && \
