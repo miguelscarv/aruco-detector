@@ -16,9 +16,6 @@ COPY requirements-build.txt ${WORKSPACE}/
 
 WORKDIR ${WORKSPACE}
 
-RUN apt-get update && apt-get install libgl1
-
-
 RUN pip install --upgrade pip && \
     pip install -r requirements-build.txt && \
     rm requirements-build.txt
@@ -53,6 +50,9 @@ RUN addgroup --system ${GROUP} && \
 COPY requirements.txt ${WORKSPACE}/
 
 WORKDIR ${WORKSPACE}
+
+RUN apt-get update && apt-get install libgl1
+
 
 RUN pip install --upgrade pip && \
     pip install -r requirements.txt && \
