@@ -1,0 +1,46 @@
+syntax = "proto3";
+
+/* 
+* Service that detects ArUco markers in images 
+*/
+service ArucoService {
+    rpc GetArUcoMarkers(Image) returns (Response);
+}
+
+/*
+ * Image to analyse
+ * param data: bytes of the image file
+ *             encoded in some image format
+ * param name: name of image file
+ * param is_last: indicating whether this image 
+ *                is the last of a batch/zip file
+ */ 
+ message Image {
+    bytes data = 1;
+    string aux = 4;
+}
+
+message Response {
+  repeated Marker markers = 1;
+}
+
+
+message Marker {
+
+    Matrix R = 1;
+    Matrix t = 2;
+    Matrix corners = 3;
+    Matrix intrinsics = 5;
+    string id = 4;
+    
+}
+
+
+message Matrix {
+    repeated Row row = 1;
+  }
+  
+  message Row {
+    repeated double elements = 1;
+  }
+
