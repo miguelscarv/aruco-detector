@@ -68,8 +68,9 @@ class ArUcoServer(aruco_pb2_grpc.ArucoServiceServicer):
             t = build_matrix(res[id]["t"])
             corners = build_matrix(res[id]["corners"])
             intrinsics = build_matrix(camera.intrinsics)
+            error = res[id]["reprojected_err"]
             
-            mark = aruco_pb2.Marker(R=R, t=t, corners=corners, intrinsics=intrinsics, id=id)
+            mark = aruco_pb2.Marker(R=R, t=t, corners=corners, intrinsics=intrinsics, id=id, error=error)
             markers.append(mark)
         
         response = aruco_pb2.Response()

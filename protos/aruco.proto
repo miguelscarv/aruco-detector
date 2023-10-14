@@ -27,11 +27,12 @@ message Response {
 
 message Marker {
 
-    Matrix R = 1;
-    Matrix t = 2;
-    Matrix corners = 3;
+    string id = 1;
+    Matrix R = 2;
+    Matrix t = 3;
+    Matrix corners = 4;
     Matrix intrinsics = 5;
-    string id = 4;
+    double error = 6;
     
 }
 
